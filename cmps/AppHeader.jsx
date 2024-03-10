@@ -11,7 +11,7 @@ export function AppHeader({setPage}) {
         <nav className="app-nav ">
             <a href="" onClick={(ev) => onSetPage(ev, 'home')}>Home</a>|
             <a href="" onClick={(ev) => onSetPage(ev, 'about')}>About</a>|
-            <a href="" onClick={(ev) => onSetPage(ev, 'books')}>Books</a>
+            <a href="" onClick={(ev) => onSetPage(ev, 'bookIndex')}>Books</a>
         </nav>
     </header>
 }
