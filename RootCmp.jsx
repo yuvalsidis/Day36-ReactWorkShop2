@@ -1,4 +1,7 @@
 import {Home} from './pages/Home.jsx'
+import {About} from './pages/About.jsx'
+import {BookIndex} from './pages/BookIndex.jsx'
+
 
 export function App() {
     return <section className="app">
@@ -7,6 +10,8 @@ export function App() {
         </header>
         <main className="container">
             <Home/>
+            <About/>
+            <BookIndex/>
         </main>
     </section>
 }
