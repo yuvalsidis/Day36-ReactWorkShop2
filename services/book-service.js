@@ -1,8 +1,9 @@
-import { storageService } from "./async-storage.service";
-import { utilService } from "./util.service";
+import { storageService } from "./async-storage.service.js";
+import { utilService } from "./util.service.js";
 
-
+const BOOK_KEY = 'BOOKS'
 export const bookService = {
+    query,
     get,
     remove,
     save,
@@ -12,6 +13,12 @@ export const bookService = {
 
 _createBooks()
 
+function query() {
+    return storageService.query(BOOK_KEY)
+        .then (books =>{
+            return books
+        })
+}
 function get(id) {
     return storageService.get(BOOK_KEY, id)
 }
@@ -63,14 +70,14 @@ function _createBooks() {
                 { amount: 109, currencyCode: 'EUR', isOnSale: 'false' })
         )
         books.push(
-            _createBook('Gwent',
-                'Art of the witcher card game',
-                { amount: 109, currencyCode: 'EUR', isOnSale: 'false' })
+            _createBook('Between here and gone',
+                'Between here and gone',
+                { amount: 10, currencyCode: 'EUR', isOnSale: 'false' })
         )
         books.push(
-            _createBook('Gwent',
-                'Art of the witcher card game',
-                { amount: 109, currencyCode: 'EUR', isOnSale: 'false' })
+            _createBook('Magic lantern',
+                'The triskell mystery part 3',
+                { amount: 300, currencyCode: 'EUR', isOnSale: 'false' })
         )
         utilService.saveToStorage(BOOK_KEY, books)
     }
