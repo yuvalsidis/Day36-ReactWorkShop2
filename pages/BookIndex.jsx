@@ -15,10 +15,15 @@ export function BookIndex() {
             })
     }
 
+    function onRemoveBook(ev,id) {
+        ev.preventDefault()
+        console.log('Removing a Book', id)    
+    }
+
     console.log(books)
     if(!books) return <h1> loading books... </h1>
     return <section className="book-index">
          <h1>Our books</h1>
-         <BookList books={books}/>
+         <BookList books={books} onRemoveBook={onRemoveBook}/>
     </section>
 }
