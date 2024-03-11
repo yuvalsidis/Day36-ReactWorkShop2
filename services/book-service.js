@@ -2,6 +2,8 @@ import { storageService } from "./async-storage.service.js";
 import { utilService } from "./util.service.js";
 
 const BOOK_KEY = 'BOOKS'
+let gFilterBy = {title: '', price: 50}
+
 export const bookService = {
     query,
     get,
@@ -9,6 +11,8 @@ export const bookService = {
     save,
     getEmptyBook,
     getNextBookId,
+    getFilterBy,
+    setFilterBy,
 }
 
 _createBooks()
@@ -43,6 +47,16 @@ function getNextBookId(bookId) {
             if(idx === books.length - 1) idx = -1
             return books[idx + 1].id
         })
+}
+
+function getFilterBy() {
+    return {...gFilterBy}
+}
+
+function setFilterBy(filterBy = {}) {
+    if(filterBy.title !== undefined) gFilterBy.title = filterBy.title
+    if(filterBy.price !== undefined) gFilterBy.price = filterBy.price
+    return gFilterBy
 }
 
 
