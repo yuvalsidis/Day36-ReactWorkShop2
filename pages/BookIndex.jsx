@@ -1,8 +1,11 @@
 const { useState, useEffect } = React
 import { bookService } from "../services/book-service.js"
 import { BookList } from "../cmps/BookList.jsx"
+import { BookDetails } from "../cmps/Book-Details.jsx"
+
 export function BookIndex() {
     const [books, setBooks] = useState(null)
+    const [showDetailsBook, setShowDetailsBook] = useState(null)
 
     useEffect( () =>{
         loadBooks()
@@ -28,11 +31,13 @@ export function BookIndex() {
     }
 
     function onShowDetails(ev, book){
-        console.log('Show Detailes', book)
+        ev.preventDefault()
+        setShowDetailsBook(book)
     }
 
-    console.log(books)
+    console.log('showDetailsBook', showDetailsBook)
     if(!books) return <h1> loading books... </h1>
+    if(showDetailsBook) return <BookDetails book={showDetailsBook}/>
     return <section className="book-index">
          <h1>Our books</h1>
          <BookList books={books} onRemoveBook={onRemoveBook} onShowDetails={onShowDetails}/>

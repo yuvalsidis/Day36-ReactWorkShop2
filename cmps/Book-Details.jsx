@@ -1,5 +1,5 @@
 
-export function BookDetails(book) {
+export function BookDetails({book}) {
     return <section className="BookDetails">
         <h1>title: {book.title}</h1>
         <h2>author: {book.author}</h2>
