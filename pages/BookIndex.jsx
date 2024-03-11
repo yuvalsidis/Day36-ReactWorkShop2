@@ -25,8 +25,6 @@ export function BookIndex() {
             .catch((err) => {
                 console.log('Book didn\'t removed', err)
             })
-        ev.preventDefault()
-
     }
 
     console.log(books)
