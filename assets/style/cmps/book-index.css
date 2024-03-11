@@ -1,0 +1,9 @@
+.book-index{
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+    max-width: 100%;
+    min-width: 100%
+}
