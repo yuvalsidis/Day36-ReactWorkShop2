@@ -5,12 +5,12 @@ export function BookFilter() {
         <form>
 
             <div className="inputContainer">
-                <lable htmlfor="price">Price : </lable>
+                <lable htmlFor="price">Price : </lable>
                 <input type="number" id="price : " placeholder="Enter a price"></input>
             </div>
 
             <div className="inputContainer">
-                <lable htmlfor="title">Title : </lable>
+                <lable htmlFor="title">Title : </lable>
                 <input type="text" id="title" placeholder="Enter a title"></input>
             </div>
 
