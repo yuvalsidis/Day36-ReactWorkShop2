@@ -2,6 +2,7 @@ const { useState, useEffect } = React
 import { bookService } from "../services/book-service.js"
 import { BookList } from "../cmps/BookList.jsx"
 import { BookDetails } from "../cmps/Book-Details.jsx"
+import { BookFilter } from "../cmps/BookFilter.jsx"
 
 export function BookIndex() {
     const [books, setBooks] = useState(null)
@@ -44,6 +45,7 @@ export function BookIndex() {
     if(!books) return <h1> loading books... </h1>
     if(showDetailsBook) return <BookDetails book={showDetailsBook} onGoBack={onGoBack}/>
     return <section className="book-index">
+         <BookFilter/>
          <h1>Our books</h1>
          <BookList books={books} onRemoveBook={onRemoveBook} onShowDetails={onShowDetails}/>
     </section>
