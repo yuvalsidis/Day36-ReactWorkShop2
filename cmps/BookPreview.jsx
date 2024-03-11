@@ -1,6 +1,6 @@
 import { BookAuction } from "./Book-Auction.jsx";
 
-export function BookPreview({book, onRemoveBook}){
+export function BookPreview({book, onRemoveBook, onShowDetails}){
     function convertTitleToImgString(title){
         let stringWitoutSpaces = title.replace(/\s/g, "");
         console.log(stringWitoutSpaces)
@@ -18,6 +18,6 @@ export function BookPreview({book, onRemoveBook}){
             <h5>{book.description}</h5>
             <h5>price: {book.listPrice.amount} {book.currencyCode} </h5>
             <img src={bookNameToImage(book.title)} alt=""></img>
-            <BookAuction book={book} onRemoveBook={onRemoveBook}/>
+            <BookAuction book={book} onRemoveBook={onRemoveBook} onShowDetails={onShowDetails}/>
     </article>
 }

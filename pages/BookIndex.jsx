@@ -27,10 +27,14 @@ export function BookIndex() {
             })
     }
 
+    function onShowDetails(ev, book){
+        console.log('Show Detailes', book)
+    }
+
     console.log(books)
     if(!books) return <h1> loading books... </h1>
     return <section className="book-index">
          <h1>Our books</h1>
-         <BookList books={books} onRemoveBook={onRemoveBook}/>
+         <BookList books={books} onRemoveBook={onRemoveBook} onShowDetails={onShowDetails}/>
     </section>
 }
