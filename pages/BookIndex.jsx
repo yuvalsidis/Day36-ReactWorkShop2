@@ -35,9 +35,14 @@ export function BookIndex() {
         setShowDetailsBook(book)
     }
 
+    function onGoBack() {
+        console.log('Going back')
+        setShowDetailsBook(null)
+    }
+
     console.log('showDetailsBook', showDetailsBook)
     if(!books) return <h1> loading books... </h1>
-    if(showDetailsBook) return <BookDetails book={showDetailsBook}/>
+    if(showDetailsBook) return <BookDetails book={showDetailsBook} onGoBack={onGoBack}/>
     return <section className="book-index">
          <h1>Our books</h1>
          <BookList books={books} onRemoveBook={onRemoveBook} onShowDetails={onShowDetails}/>
