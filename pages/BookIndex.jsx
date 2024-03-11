@@ -18,6 +18,15 @@ export function BookIndex() {
     function onRemoveBook(ev,id) {
         ev.preventDefault()
         console.log('Removing a Book', id)    
+        bookService.remove(id)
+            .then((books) =>{
+                setBooks((prevBooks)=> prevBooks.filter(book => book.id !== id))
+            })
+            .catch((err) => {
+                console.log('Book didn\'t removed', err)
+            })
+        ev.preventDefault()
+
     }
 
     console.log(books)
