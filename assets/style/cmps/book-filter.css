@@ -1,0 +1,26 @@
+.book-filter{
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    background-color: var(--clr1);
+    width: 400px;
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+.book-filter form{
+    display: flex;
+    flex-flow:column;
+    font-size: 2em;
+    gap: 5px;
+}
+
+.book-filter .inputContainer{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+
+
+
