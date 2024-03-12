@@ -1,8 +1,16 @@
-    .book-list{
+
+    .book-list {
         display: grid;
         grid-template-columns: repeat(auto-fit, 20em);
         gap: 15px;
         position: relative;
         display: "inline-block";
         max-width: 100%;
+        border-radius: 1em;
+    }
+
+    .book-list li{
+        border-style: solid;
+        border-radius: 2em;
+        background-color: var(--clr1);
     }
