@@ -7,7 +7,9 @@ export const utilService = {
     padNum,
     getDayName,
     getMonthName,
-    getRandomArrayFromArray
+    getRandomArrayFromArray,
+    shuffleArray,
+    getCurrectYear
 }
 
 function makeId(length = 6) {
@@ -70,6 +72,13 @@ function shuffleArray(array) {
     return array;
 }
 
+function getCurrectYear() {
+    const currentdate = new Date()
+    const currentYear = currentdate.getFullYear() 
+    console.log('the current year is : ', currentYear)
+    return currentYear
+}
+
 function getRandomArrayFromArray(arr) {
     const shuffledArr = shuffleArray(arr)
     const newArr = []
@@ -79,3 +88,4 @@ function getRandomArrayFromArray(arr) {
     }
     return newArr
 }
+
