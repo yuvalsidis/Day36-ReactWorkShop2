@@ -17,6 +17,8 @@
 .book-details .book-details-description h1{
     text-decoration: underline;
 }
+
+
 @media (max-width: 1000px) {
     .book-details {
         grid-template-rows: 1fr 1fr;

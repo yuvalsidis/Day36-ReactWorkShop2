@@ -106,6 +106,7 @@ function _createBook(imgIdx) {
     const book = getEmptyBook()
     book.id = utilService.makeId()
     book.title = utilService.makeLorem(3)
+    book.subtitle = utilService.makeLorem(6)
     book.listPrice.amount = utilService.getRandomIntInclusive(20, 200)
     book.description = utilService.makeLorem(100)
     book.pageCount = utilService.getRandomIntInclusive(100, 1200)
