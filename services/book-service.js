@@ -3,7 +3,11 @@ import { utilService } from "./util.service.js";
 
 const BOOK_KEY = 'BOOKS'
 let gFilterBy = {title: '', price: 50}
+
+//For data model ONLY
 const gDataModelCatagory = ["Computers", "Hack", "kitchen", "science" ]
+const gDataModelYearPublsihed = createDates()
+
 
 export const bookService = {
     query,
@@ -96,11 +100,11 @@ function _createBooks() {
         books = []
         for(var i = 0; i < 20; i++){
             books.push(_createBook(i))
-            console.log(books[i].thumbnail)
         }
         utilService.saveToStorage(BOOK_KEY, books)
     }
 }
+
 
 function _createBook(imgIdx) {
     const book = getEmptyBook()
@@ -109,8 +113,27 @@ function _createBook(imgIdx) {
     book.subtitle = utilService.makeLorem(6)
     book.listPrice.amount = utilService.getRandomIntInclusive(20, 200)
     book.description = utilService.makeLorem(100)
-    book.pageCount = utilService.getRandomIntInclusive(100, 1200)
+    book.pageCount = utilService.getRandomIntInclusive(100, 600)
     book.categories = utilService.getRandomArrayFromArray(gDataModelCatagory)
     book.thumbnail = `./assets/img/${imgIdx + 1}.jpg`
+    book.publishedDate =  gDataModelYearPublsihed[imgIdx + 1]
     return book
+}
+
+
+
+function createDates() {
+    const arr = []
+    let startDate = 1813 
+    for(let i = 0; i < 4; i++){
+        arr.push(2024) 
+        // console.log('first array i :',i, 'and element in arr now :', arr[i])
+    }
+    for(let i = 4; i < 20; i++){
+        arr[i] = startDate
+        arr.push(startDate)
+        startDate += 11
+        // console.log('second array i :',i, 'and element in arr now :', arr[i])
+    }
+    return  utilService.shuffleArray(arr)
 }
