@@ -18,6 +18,9 @@ export function BookIndex() {
             .then((books) =>{
                 setBooks(books)
             })
+            .catch((error) =>{
+                console.log('an error occur by reloading the books', err)
+            })
     }
 
     function onSetFilter(fieldsToUpdate) {
@@ -46,6 +49,12 @@ export function BookIndex() {
         console.log('Going back')
         setShowDetailsBook(null)
     }
+
+
+    //for debug purpose
+    window.myBooks = books
+
+
 
     if(!books) return <h1> loading books... </h1>
     if(showDetailsBook) return <BookDetails book={showDetailsBook} onGoBack={onGoBack}/>
