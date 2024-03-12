@@ -3,13 +3,11 @@ import { BookAuction } from "./Book-Auction.jsx";
 export function BookPreview({book, onRemoveBook, onShowDetails}){
     function convertTitleToImgString(title){
         let stringWitoutSpaces = title.replace(/\s/g, "");
-        console.log(stringWitoutSpaces)
         return stringWitoutSpaces
     }
 
     function bookNameToImage(title){
         const newTitle = convertTitleToImgString(title)
-        console.log(newTitle)
         return `./assets/img/BooksImages/${newTitle}.jpg`
     }
 

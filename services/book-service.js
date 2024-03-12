@@ -17,9 +17,16 @@ export const bookService = {
 
 _createBooks()
 
-function query() {
+function query(filterBy) {
     return storageService.query(BOOK_KEY)
         .then (books =>{
+            if(filterBy.title){
+                const regex =  new RegExp(filterBy.title, 'i')
+                books = books.filter(book => regex.test(book.title))
+            }
+            if(filterBy.price){
+                books = books.filter(book => book.listPrice.amount <= filterBy.price)
+            }
             return books
         })
 }
@@ -54,25 +61,35 @@ function getFilterBy() {
 }
 
 function setFilterBy(filterBy = {}) {
+    console.log('filterby',filterBy)
     if(filterBy.title !== undefined) gFilterBy.title = filterBy.title
     if(filterBy.price !== undefined) gFilterBy.price = filterBy.price
+    console.log('gFilterBy', gFilterBy)
     return gFilterBy
 }
 
 
 function getEmptyBook() {
     return {
-        id: '',
-        author: '',
-        title: '',
-        description: '',
-        listPrice: {
-            amount: null,
-            currencyCode: "",
-            isOnSale: false
-        }
-    }
+       id : "",
+       title : "metus hendrerit",
+       subtitle : "mi est eros dapibus himenaeos",
+       authors: [ "Barbara Cartland" ],
+       publishedDate: 1999,
+       description: "placerat nisi sodales suscipit tellus",
+       pageCount: 713,
+       categories: [ "Computers", "Hack" ],
+       thumbnail: "http://ca.org/books-photos/20.jpg",
+       language: "en",
+       listPrice: { 
+       amount: 109,
+       currencyCode: "EUR",
+       isOnSale: false
+       }
+   }
 }
+
+
 
 function _createBooks() {
     let books = utilService.loadFromStorage(BOOK_KEY)
