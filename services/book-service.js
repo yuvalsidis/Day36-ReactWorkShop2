@@ -96,7 +96,7 @@ function _createBooks() {
         books = []
         for(var i = 0; i < 20; i++){
             books.push(_createBook(i))
-            console.log(books[i])
+            console.log(books[i].thumbnail)
         }
         utilService.saveToStorage(BOOK_KEY, books)
     }
@@ -110,6 +110,6 @@ function _createBook(imgIdx) {
     book.description = utilService.makeLorem(100)
     book.pageCount = utilService.getRandomIntInclusive(100, 1200)
     book.categories = utilService.getRandomArrayFromArray(gDataModelCatagory)
-    book.thumbnail = imgIdx + 1
+    book.thumbnail = `./assets/img/${imgIdx + 1}.jpg`
     return book
 }

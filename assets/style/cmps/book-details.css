@@ -1,3 +1,25 @@
-.book-details .header{
+.book-details {
+    display: grid;
+    grid-auto-flow: column;
+    justify-items: center;
+    transform:translateY(50%)
+}
+
+.image-details img {
+    height: 100%;
+}
+
+.book-details .book-details-description{
     background-color: var(--clr1);
+    padding-left: 1em;
+}
+
+.book-details .book-details-description h1{
+    text-decoration: underline;
+}
+@media (max-width: 1000px) {
+    .book-details {
+        grid-template-rows: 1fr 1fr;
+        transform:translateY(0%)
+    }
 }

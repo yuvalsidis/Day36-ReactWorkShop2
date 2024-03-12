@@ -1,16 +1,27 @@
 
-export function BookDetails({book, onGoBack}) {
-    return <section className="BookDetails">
-        <button className="goBack-btn" onClick={onGoBack}>Go Back</button>
-        <h1 className="header">title:</h1>
-        <p>{book.title}</p>
-        <h2 className="header">author:</h2>
-        <p>{book.author}</p>
-        <h2 className="header">publishedDate:</h2>
-        <p>{book.publishedDate}</p>
-        <h1 className="header">pageCount:</h1>
-        <p>{book.pageCount}</p>
-        <h2 className="header">description:</h2>
-        <p>{book.description}</p>
+export function BookDetails({ book, onGoBack }) {
+    return <section className="book-details">
+        <div className="image-details">
+            <img src={book.thumbnail} alt=""></img>
+        </div>
+        <div className="book-details-description">
+            <button className="goBack-btn" onClick={onGoBack}>Go Back</button>
+            <div className="DescriptionLineContent">
+                <h1>title:</h1>
+                <p>{book.title}</p>
+            </div>
+            <div className="DescriptionLineContent">
+                <h1>author:</h1>
+                <p>{book.author}</p>
+            </div>
+            <div className="DescriptionLineContent">
+                <h1>pageCount:</h1>
+                <p>{book.pageCount}</p>
+            </div>
+            <div className="DescriptionLineContent">
+                <h1> description:</h1>
+                <p>{book.description}</p>
+            </div>
+        </div>
     </section>
 }
