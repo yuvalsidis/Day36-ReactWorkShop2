@@ -6,7 +6,8 @@ export const utilService = {
     saveToStorage,
     padNum,
     getDayName,
-    getMonthName
+    getMonthName,
+    getRandomArrayFromArray
 }
 
 function makeId(length = 6) {
@@ -59,4 +60,22 @@ function getMonthName(date) {
         'July', 'August', 'September', 'October', 'November', 'December'
     ]
     return monthNames[date.getMonth()]
+}
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+function getRandomArrayFromArray(arr) {
+    const shuffledArr = shuffleArray(arr)
+    const newArr = []
+    const randomIteration = getRandomIntInclusive(0, shuffledArr.length)
+    for(var i = 0; i <= randomIteration; i++){
+        newArr[i] = shuffledArr[i]
+    }
+    return newArr
 }

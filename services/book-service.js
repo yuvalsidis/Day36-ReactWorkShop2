@@ -3,6 +3,7 @@ import { utilService } from "./util.service.js";
 
 const BOOK_KEY = 'BOOKS'
 let gFilterBy = {title: '', price: 50}
+const gDataModelCatagory = ["Computers", "Hack", "kitchen", "science" ]
 
 export const bookService = {
     query,
@@ -89,36 +90,26 @@ function getEmptyBook() {
    }
 }
 
-
-
 function _createBooks() {
     let books = utilService.loadFromStorage(BOOK_KEY)
     if (!books || !books.length) {
         books = []
-        books.push(
-            _createBook('Gwent',
-                'Art of the witcher card game',
-                { amount: 109, currencyCode: 'EUR', isOnSale: 'false' })
-        )
-        books.push(
-            _createBook('Between here and gone',
-                'Between here and gone',
-                { amount: 10, currencyCode: 'EUR', isOnSale: 'false' })
-        )
-        books.push(
-            _createBook('Magic lantern',
-                'The triskell mystery part 3',
-                { amount: 300, currencyCode: 'EUR', isOnSale: 'false' })
-        )
+        for(var i = 0; i < 20; i++){
+            books.push(_createBook(i))
+            console.log(books[i])
+        }
         utilService.saveToStorage(BOOK_KEY, books)
     }
 }
 
-function _createBook(title, description, listPrice) {
+function _createBook(imgIdx) {
     const book = getEmptyBook()
     book.id = utilService.makeId()
-    book.title = title
-    book.listPrice = listPrice
-    book.description = description
+    book.title = utilService.makeLorem(3)
+    book.listPrice.amount = utilService.getRandomIntInclusive(20, 200)
+    book.description = utilService.makeLorem(100)
+    book.pageCount = utilService.getRandomIntInclusive(100, 1200)
+    book.categories = utilService.getRandomArrayFromArray(gDataModelCatagory)
+    book.thumbnail = imgIdx + 1
     return book
 }
